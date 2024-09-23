@@ -69,19 +69,19 @@ export default function Contact(){
 
                 {
                     !isLoading && Object.keys(data.location).map(key => {
-                       return <ItemCard label={key} value={data.location[key]}/>
+                       return <ItemCard label={key} value={data.location[key]} key={key}/>
                     })
                 }
 
                 {
                     !isLoading && Object.keys(data.phone).map(key => {
-                       return <ItemCard label={key} value={data.phone[key]}/>
+                       return <ItemCard label={key} value={data.phone[key]} key={key}/>
                     })
                 }
 
                 {
                     !isLoading && Object.keys(data.social).map(key => {
-                       return <ItemCard label={key} value={data.social[key]}/>
+                       return <ItemCard label={key} value={data.social[key]} key={key}/>
                     })
                 }
                 
