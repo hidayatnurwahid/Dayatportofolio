@@ -13,7 +13,7 @@ export default function About() {
     
                             </div>
       <img 
-        src="/images/jajal.jpg" 
+        src="/images/jajal.png" 
         alt="Hidayat Nurwahid" 
         layout="fill"
         objectFit="cover"
