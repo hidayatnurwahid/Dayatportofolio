@@ -28,6 +28,24 @@ export default function AdminWork() {
     setData({...data, [e.target.name]: e.target.value })
   }
 
+  async function onSubmitData() {
+    try{
+      let res = await fetch('/api/work', {
+        method:'POST',
+        body: JSON.stringify(data),
+      })
+      let resData = await res.json()
+      if(!resData.data){
+        throw Error(resData.message)
+      }
+      alert("Data berhasil disimpan dengan id \n"+ resData.data.insertedId)
+    }catch(err){
+      console.error("ERR", err.message)
+      alert(err.message)
+    }
+    
+  }
+
   return (<>
       <Card title="Work Form" className="pb-5">
         <div className="w-full my-2">
@@ -77,7 +95,9 @@ export default function AdminWork() {
             <input type="date" className="w-full border my-input-text"/>
         </div>
 
-        <button className="mx-1 h-9 items-center justify-center px-4  rounded-md bg-amber-500">
+        <button
+        onClick={onSubmitData}
+        className="mx-1 h-9 items-center justify-center px-4  rounded-md bg-amber-500">
             <label>Submit Data</label>
         </button>
       </Card>
