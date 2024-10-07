@@ -19,6 +19,11 @@ export default function AdminWork() {
     {label:'Internship', value:'internship'}
   ]
 
+  const optLocation = [
+    {label:'Onsite', value:'onsite'},
+    {label:'WFH', value:'wfh'},
+  ]
+
   const inputHandler= (e) =>{
     setData({...data, [e.target.name]: e.target.value })
   }

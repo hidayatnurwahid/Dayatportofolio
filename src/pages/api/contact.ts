@@ -31,17 +31,17 @@ export default function handler(
 ) {
   const response:ResponseData={
     location:{ 
-      city:"Jakarta", 
+      city:"Utara Keras", 
       country:"Indonesia", 
-      street:"Jl. Jalan"
+      street:"Jl Kota Tua"
     },
     phone:{
-      office:"021 88989",
-      personal:"0813 484994 999794", 
+      office:"021 0987 9877",
+      personal:"0813 0878 7676", 
       suport: null
     },
     social: {
-      email:"myname@mail.com",
+      email:"dayat113@gmail.com",
       skype:"@myname",
       telegram:"@myname"
     }
