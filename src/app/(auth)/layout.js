@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "./global.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +20,6 @@ export default function RootLayout({ children }) {
                 </div>
                 <div>
                   <ul className="flex flex-row gap-6">
-                    
                     <li>
                       <a href="/admin/work">Work</a>
                     </li>
@@ -36,5 +35,3 @@ export default function RootLayout({ children }) {
       </div>
   );
 }
-
-

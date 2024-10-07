@@ -33,17 +33,17 @@ export default function handler(
     location:{ 
       city:"Jakarta", 
       country:"Indonesia", 
-      street:"Jl. Kota Tua"
+      street:"Jl. Jalan"
     },
     phone:{
-      office:"021 123456",
-      personal:"0821 2561 6885", 
+      office:"021 88989",
+      personal:"0813 484994 999794", 
       suport: null
     },
     social: {
-      email:"hidayatnwr@gmail.com",
-      skype:"@hidayatnwr",
-      telegram:"@hidayatnwr"
+      email:"myname@mail.com",
+      skype:"@myname",
+      telegram:"@myname"
     }
   }
   res.status(200).json(response)
