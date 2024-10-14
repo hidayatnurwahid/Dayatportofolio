@@ -33,7 +33,7 @@ export default function Dashboard() {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Subject</th>
-                            <th>Message</th>
+                            <th>Messages</th>
                             <th>Action</th>
                         </tr>
                     </thead>
