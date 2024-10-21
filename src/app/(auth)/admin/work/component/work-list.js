@@ -13,13 +13,26 @@ export default function WorkList(){
         setLoading(false)
     }
 
+    const onDeleteItem = async (id)=>{
+        const request = {
+            deleted_id:id
+        }
+        
+        let res = await fetch(`/api/work`,{
+            method:'DELETE',
+            body: JSON.stringify(request),
+        } )
+
+        onLoadData()
+    }
+
     useEffect(() => {
         onLoadData()
     }, [])
 
     return (
         <>
-
+            
             <table className="table-auto">
                 <thead>
                     <tr>
@@ -34,8 +47,8 @@ export default function WorkList(){
                     </tr>
                 </thead>
                 <tbody>
-
-                    { data.map((item,idx)=>{
+                    { loading &&  <tr><td colSpan={8}>Loading...</td></tr> }
+                    {!loading && data.map((item,idx)=>{
 
                         return (
                             <tr key={idx} className='border-b border-blue-gray-50'>
@@ -51,7 +64,7 @@ export default function WorkList(){
                                         <button className=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
                                             Edit
                                         </button>
-                                        <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-r">
+                                        <button onClick={()=>onDeleteItem(item._id)} className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-r">
                                             Delete
                                         </button>
                                     </div>

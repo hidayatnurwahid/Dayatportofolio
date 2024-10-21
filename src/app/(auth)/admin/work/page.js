@@ -84,7 +84,7 @@ export default function AdminWork() {
         </div>
 
         <div className="w-full my-2">
-            <label>Lokasi</label>
+            <label>Location</label>
             <select 
               name='location'
               onChange={inputHandler}
