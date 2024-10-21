@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react';
 import Card from '../../../../components/card';
+import WorkList from './component/work-list'
 
 export default function AdminWork() {
   const [data, setData] = useState({
@@ -11,7 +12,7 @@ export default function AdminWork() {
     startDate:'',
     endDate:'',
   });
-
+  
   const optEmployeType = [
     {label:'Full Time', value:'full-time'},
     {label:'Part Time', value:'part-time'},
@@ -43,8 +44,8 @@ export default function AdminWork() {
       console.error("ERR", err.message)
       alert(err.message)
     }
-    
-  }
+}
+
 
   return (<>
       <Card title="Work Form" className="pb-5">
@@ -75,35 +76,55 @@ export default function AdminWork() {
 
         <div className="w-full my-2">
             <label>Company Name</label>
-            <input type="text" className="w-full border my-input-text"/>
+            <input 
+              name='companyName' 
+              type="text" 
+              onChange={inputHandler}
+              className="w-full border my-input-text"/>
         </div>
 
         <div className="w-full my-2">
-            <label>Location</label>
-            <select  className="w-full border my-input-text">
-              <option>Onsite</option>
+            <label>Lokasi</label>
+            <select 
+              name='location'
+              onChange={inputHandler}
+              className="w-full border my-input-text">
+              {
+                optLocation && 
+                optLocation.map((item, key)=>
+                    <option key={key} value={item.value}>{item.label}</option>
+                  )
+              }
             </select>
         </div>
 
         <div className="w-full my-2">
             <label>Start Date</label>
-            <input type="date" className="w-full border my-input-text"/>
+            <input 
+              name='startDate'
+              onChange={inputHandler}
+              type="date" 
+              className="w-full border my-input-text"/>
         </div>
 
         <div className="w-full my-2">
             <label>End Date</label>
-            <input type="date" className="w-full border my-input-text"/>
+            <input 
+              name='endDate'
+              onChange={inputHandler}
+              type="date" 
+              className="w-full border my-input-text"/>
         </div>
 
-        <button
-        onClick={onSubmitData}
-        className="mx-1 h-9 items-center justify-center px-4  rounded-md bg-amber-500">
+        <button 
+          onClick={onSubmitData}
+          className="mx-1 h-9 items-center justify-center px-4  rounded-md bg-amber-500">
             <label>Submit Data</label>
         </button>
       </Card>
       
       <Card title="List of Work" style="mt-5">
-        asdf
+        <WorkList/>
       </Card>
     </>
   );
