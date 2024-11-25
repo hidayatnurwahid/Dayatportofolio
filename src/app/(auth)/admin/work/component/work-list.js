@@ -2,7 +2,9 @@
 import { useState, useEffect } from "react"
 import ConfigDialog from '../../../../../components/ConfirmDialog'
 
-export default function WorkList({onEditItem}){
+export default function WorkList({
+    onEditItem
+}){
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState([])
     const [deletdId, setDeletdId]= useState(null)
