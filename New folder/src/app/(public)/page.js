@@ -32,12 +32,12 @@ export default function Dashboard() {
         <div className='flex w-full bg-white rounded-xl '>
           <div className="flex-1 p-10">
             <div className="font-extrabold text-[48px] mt-10">
-              <div>I&lsquo;m Hidayat Nurwahid</div>
+              <div>I&lsquo;m Rayan Adlrdard</div>
               <div>
                 <span className="text-[#FFB400]">Front-end</span> Developer 
               </div>
             </div>
-            <p className="text-[#767676]">Saya Hidayat Nurwahid, Mahasiswa Aktif Semester 5,Exprience Assistant Lab one years in Politeknik LP3I Jakarta</p>
+            <p className="text-[#767676]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.</p>
             <button className="btn-primary mt-5">
               <span className="relative text-sm font-semibold text-white">
                   Here Me

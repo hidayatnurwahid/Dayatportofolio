@@ -12,27 +12,30 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
         case "PUT":
             try{
                 const filter = {_id: id }
-                const body = JSON.parse(req.body)
-                // const body = req.body
+                // const body = JSON.parse(req.body)
+                const body = req.body
                 const updateDoc = {
                     $set: {
-                        content: body.content,
-                        subTitle: body.subTitle,
-                        title: body.title
+                        nama_kampus: body.nama_kampus,
+                        alamat_kampus: body.alamat_kampus,
+                        tahun_lulus: body.tahun_lulus,
+                        ipk: body.ipk,
+                        program_studi: body.program_studi,
+                        jenjang_pendidikan: body.jenjang_pendidikan,
                     },
                   };
-                console.log('filter',filter)
-                const blogs = await db.collection("blogs")
+
+                const education = await db.collection("education")
                         .updateOne(filter, updateDoc, { upsert: true })
 
-                res.status(200).json({data:[blogs], message: 'data berhasil di perbaharui'});
+                res.status(200).json({data:[education], message: 'data berhasil di perbaharui'});
             }catch(err){
                 res.status(422).json({ message: err.message});
             }
-        break;
+        break;      
         case "DELETE":
             try{
-                const resDelete = await db.collection("blogs").deleteOne({
+                const resDelete = await db.collection("education").deleteOne({
                     _id: id
                 })
 
@@ -46,7 +49,7 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
             }
         break;
         default:
-            const education = await db.collection("blogs")
+            const education = await db.collection("education")
                 .findOne({ _id: id })
             res.json({ data: education });
         break;

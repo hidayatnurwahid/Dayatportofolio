@@ -26,7 +26,7 @@ export default function PublicMenu() {
                       <a className="btn-link" href="/work">Work</a>
                     </li>
                     <li className="mt-1">
-                      <a className="btn-link" href="/blogs">Blogs</a>
+                      <a className="btn-link" href="/blogs">Blog</a>
                     </li>
                     <li className="mt-1">
                       <a className="btn-link" href="/contact">Contact</a>
