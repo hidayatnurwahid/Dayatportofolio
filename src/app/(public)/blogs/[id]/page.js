@@ -22,12 +22,16 @@ export default function Blogsbyid(){
         nama:'',
         email:'',
         komentar:'',
+        blogId: params.id
     });
+    const [isLoadingKomentar, setLoadingKomentar]= useState(false)
+    const [dataKomentar, setDataKomentar] = useState([])
     const clearData = ()=>{
         setDataKomen({
             nama:'',
             email:'',
             komentar:'',
+            blogId: params.id
         })
     } 
     const inputHandler= (e) =>{
@@ -48,6 +52,21 @@ export default function Blogsbyid(){
             setLoading(false)
         }
     }
+
+    const onFetchKomentar=async()=>{
+        try{
+            setLoadingKomentar(true)
+            let res = await fetch(`/api/komenblog/${params.id}`)
+            let data = await res.json()
+            setDataKomentar(data.data)
+            setLoadingKomentar(false)
+        }catch(err){
+            console.log('err', err)
+            setDataKomentar([])
+            setLoadingKomentar(false)
+        }
+    }
+
     // Komentar
     const onCancel=()=>{
         setModal(false)
@@ -61,7 +80,7 @@ export default function Blogsbyid(){
         try{
             if (editorRef.current) {
                 const body = datakomen
-                body.content = editorRef.current.getContent();
+                body.komentar = editorRef.current.getContent();
 
                 let res = await fetch('/api/komenblog', {
                     method:'POST',
@@ -87,6 +106,7 @@ export default function Blogsbyid(){
 
     useEffect(()=>{
         onFetchBlogs()
+        onFetchKomentar()
     },[])
 
     if(isLoading) return (<>Loading...</>)
@@ -149,6 +169,13 @@ export default function Blogsbyid(){
                 </span>
             </button>
         </Card>
+        
+        {
+            dataKomentar.map( (komen,idx) => <Card className="mt-5" key={idx} title={komen.nama}>
+                <div  dangerouslySetInnerHTML={{ __html: komen.komentar }} />
+            </Card> )
+        }
+        
 
         <ConfigDialog  
             onOkOny={()=>onCancel()} 
